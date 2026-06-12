@@ -9,7 +9,7 @@ class Krs extends Model
 {
     use HasFactory;
 
-    protected $table = 'pwl_kelas_b_krs';
+    protected $table = 'krs';
 
     protected $fillable = [
         'npm',

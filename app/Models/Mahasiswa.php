@@ -9,7 +9,7 @@ class Mahasiswa extends Model
 {
     use HasFactory;
 
-    protected $table = 'pwl_kelas_b_mahasiswa';
+    protected $table = 'mahasiswa';
 
     protected $primaryKey = 'npm';
 

@@ -64,7 +64,7 @@ class KrsController extends Controller
         }
 
         $request->validate([
-            'kode_matakuliah' => 'required|string|exists:pwl_kelas_b_matakuliah,kode_matakuliah',
+            'kode_matakuliah' => 'required|string|exists:matakuliah,kode_matakuliah',
         ], [
             'kode_matakuliah.required' => 'Mata kuliah wajib dipilih.',
             'kode_matakuliah.exists' => 'Mata kuliah tidak valid.',

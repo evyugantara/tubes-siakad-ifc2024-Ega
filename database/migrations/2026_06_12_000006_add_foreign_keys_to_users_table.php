@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->foreign('npm')
                   ->references('npm')
-                  ->on('pwl_kelas_b_mahasiswa')
+                  ->on('mahasiswa')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
         });

@@ -51,7 +51,7 @@ class SiakadTest extends TestCase
         ]);
 
         $response->assertRedirect('/krs');
-        $this->assertDatabaseHas('pwl_kelas_b_krs', [
+        $this->assertDatabaseHas('krs', [
             'npm' => $studentUser->npm,
             'kode_matakuliah' => $available->kode_matakuliah
         ]);

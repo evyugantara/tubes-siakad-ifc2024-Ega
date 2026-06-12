@@ -9,7 +9,7 @@ class Dosen extends Model
 {
     use HasFactory;
 
-    protected $table = 'pwl_kelas_b_dosen';
+    protected $table = 'dosen';
 
     protected $primaryKey = 'nidn';
 

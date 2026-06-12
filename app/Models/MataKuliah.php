@@ -9,7 +9,7 @@ class MataKuliah extends Model
 {
     use HasFactory;
 
-    protected $table = 'pwl_kelas_b_matakuliah';
+    protected $table = 'matakuliah';
 
     protected $primaryKey = 'kode_matakuliah';
 

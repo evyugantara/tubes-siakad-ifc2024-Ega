@@ -9,7 +9,7 @@ class Jadwal extends Model
 {
     use HasFactory;
 
-    protected $table = 'pwl_kelas_b_jadwal';
+    protected $table = 'jadwal';
 
     protected $fillable = [
         'kode_matakuliah',

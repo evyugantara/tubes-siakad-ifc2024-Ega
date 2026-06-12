@@ -9,7 +9,7 @@ return new class extends Migration
     
     public function up(): void
     {
-        Schema::create('pwl_kelas_b_mahasiswa', function (Blueprint $table) {
+        Schema::create('mahasiswa', function (Blueprint $table) {
             $table->char('npm', 10)->primary();
             $table->char('nidn', 10);
             $table->string('nama', 50);
@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->foreign('nidn')
                   ->references('nidn')
-                  ->on('pwl_kelas_b_dosen')
+                  ->on('dosen')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
         });
@@ -25,6 +25,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('pwl_kelas_b_mahasiswa');
+        Schema::dropIfExists('mahasiswa');
     }
 };

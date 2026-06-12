@@ -27,7 +27,7 @@ class MataKuliahController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_matakuliah' => 'required|string|size:8|unique:pwl_kelas_b_matakuliah,kode_matakuliah',
+            'kode_matakuliah' => 'required|string|size:8|unique:matakuliah,kode_matakuliah',
             'nama_matakuliah' => 'required|string|max:50',
             'sks' => 'required|integer|min:1|max:6',
         ], [

@@ -39,9 +39,9 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'npm' => 'required|string|size:10|unique:pwl_kelas_b_mahasiswa,npm',
+            'npm' => 'required|string|size:10|unique:mahasiswa,npm',
             'nama' => 'required|string|max:50',
-            'nidn' => 'required|string|exists:pwl_kelas_b_dosen,nidn',
+            'nidn' => 'required|string|exists:dosen,nidn',
         ], [
             'npm.required' => 'NPM wajib diisi.',
             'npm.size' => 'NPM harus berukuran 10 karakter.',
@@ -80,7 +80,7 @@ class MahasiswaController extends Controller
 
         $request->validate([
             'nama' => 'required|string|max:50',
-            'nidn' => 'required|string|exists:pwl_kelas_b_dosen,nidn',
+            'nidn' => 'required|string|exists:dosen,nidn',
         ], [
             'nama.required' => 'Nama mahasiswa wajib diisi.',
             'nama.max' => 'Nama mahasiswa maksimal 50 karakter.',

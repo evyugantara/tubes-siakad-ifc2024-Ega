@@ -46,8 +46,8 @@ class JadwalController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_matakuliah' => 'required|string|exists:pwl_kelas_b_matakuliah,kode_matakuliah',
-            'nidn' => 'required|string|exists:pwl_kelas_b_dosen,nidn',
+            'kode_matakuliah' => 'required|string|exists:matakuliah,kode_matakuliah',
+            'nidn' => 'required|string|exists:dosen,nidn',
             'kelas' => 'required|string|size:1',
             'hari' => 'required|string|in:Senin,Selasa,Rabu,Kamis,Jumat,Sabtu,Minggu',
             'jam' => 'required', 
@@ -82,8 +82,8 @@ class JadwalController extends Controller
         $jadwal = Jadwal::findOrFail($id);
 
         $request->validate([
-            'kode_matakuliah' => 'required|string|exists:pwl_kelas_b_matakuliah,kode_matakuliah',
-            'nidn' => 'required|string|exists:pwl_kelas_b_dosen,nidn',
+            'kode_matakuliah' => 'required|string|exists:matakuliah,kode_matakuliah',
+            'nidn' => 'required|string|exists:dosen,nidn',
             'kelas' => 'required|string|size:1',
             'hari' => 'required|string|in:Senin,Selasa,Rabu,Kamis,Jumat,Sabtu,Minggu',
             'jam' => 'required',
