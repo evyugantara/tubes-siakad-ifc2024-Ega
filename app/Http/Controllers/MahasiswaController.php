@@ -107,8 +107,14 @@ class MahasiswaController extends Controller
     public function destroy($npm)
     {
         $mahasiswa = Mahasiswa::findOrFail($npm);
-        
-        $mahasiswa->delete();
+
+        DB::transaction(function () use ($mahasiswa) {
+            // Hapus akun user terkait terlebih dahulu
+            User::where('npm', $mahasiswa->npm)->delete();
+
+            // Hapus mahasiswa (KRS akan ter-cascade)
+            $mahasiswa->delete();
+        });
 
         return redirect()->route('mahasiswa.index')
             ->with('success', 'Data mahasiswa dan akun loginnya berhasil dihapus.');

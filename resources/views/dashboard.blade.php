@@ -2,7 +2,7 @@
 
 @section('title', 'Beranda')
 @section('header_title', 'Dashboard')
-@section('header_subtitle', 'Selamat datang di Sistem Informasi Akademik Universitas Suryakencana')
+@section('page_title', 'Control Panel')
 
 @section('content')
     @if(auth()->user()->isAdmin())
@@ -100,15 +100,11 @@
             </div>
         </div>
 
-        <div class="card" style="margin-top: 2rem; padding: 0; overflow: hidden;">
+        <div class="box" style="overflow: hidden;">
             <div class="card-header-navy">
-                <span>Panel Administrasi</span>
+                <span>&#9776; Panel Administrasi</span>
             </div>
-            <div style="padding: 1.75rem;">
-                <p style="color: var(--text-secondary); line-height: 1.6; font-size: 14.5px;">
-                    Selamat datang di panel admin utama SIAKAD FT UNSUR. Melalui sistem ini, Anda dapat mengelola seluruh data akademik yang terintegrasi. Silakan pilih menu di samping untuk mengelola Data Dosen Pengajar, Data Mahasiswa, Mata Kuliah, Jadwal Kuliah, dan memantau Kartu Rencana Studi (KRS) Mahasiswa.
-                </p>
-            </div>
+            
         </div>
     @else
         
@@ -173,20 +169,8 @@
             </div>
         </div>
 
-        <div class="card" style="margin-top: 2rem; padding: 0; overflow: hidden;">
-            <div class="card-header-blue">
-                <span>Jadwal Kuliah Anda Semester Ini</span>
-                <div style="display: flex; gap: 8px;">
-                    <a href="{{ route('krs.index') }}" class="btn btn-secondary btn-sm" style="background-color: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.2); color: white;">
-                        Kelola KRS (Input/Drop)
-                    </a>
-                    @if($totalMatakuliah > 0)
-                        <a href="{{ route('krs.print') }}" target="_blank" class="btn btn-primary btn-sm" style="background-color: #ffffff; color: #3c8dbc; border: none;">
-                            Cetak KRS (PDF)
-                        </a>
-                    @endif
-                </div>
-            </div>
+        <div class="box" style="overflow: hidden;">
+           
             
             <div class="card-body" style="padding: 1.75rem;">
                 @if($personalJadwal->isEmpty())

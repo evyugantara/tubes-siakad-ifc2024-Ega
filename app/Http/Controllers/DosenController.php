@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dosen;
+use App\Models\Mahasiswa;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DosenController extends Controller
 {
@@ -66,9 +69,26 @@ class DosenController extends Controller
     public function destroy($nidn)
     {
         $dosen = Dosen::findOrFail($nidn);
-        $dosen->delete();
+
+        // Hapus berurutan: users -> mahasiswa -> dosen
+        // agar tidak terkena foreign key constraint error
+        DB::transaction(function () use ($dosen) {
+            // Ambil semua npm mahasiswa yang diwali dosen ini
+            $npmList = Mahasiswa::where('nidn', $dosen->nidn)->pluck('npm');
+
+            // Hapus akun users mahasiswa terkait
+            if ($npmList->isNotEmpty()) {
+                User::whereIn('npm', $npmList)->delete();
+            }
+
+            // Hapus semua mahasiswa terkait (KRS akan cascade dari mahasiswa)
+            Mahasiswa::where('nidn', $dosen->nidn)->delete();
+
+            // Hapus dosen
+            $dosen->delete();
+        });
 
         return redirect()->route('dosen.index')
-            ->with('success', 'Data dosen berhasil dihapus.');
+            ->with('success', 'Data dosen dan mahasiswa terkait berhasil dihapus.');
     }
 }
