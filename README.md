@@ -1,3 +1,1 @@
-Sistem Informasi Akademik (SIAKAD) berbasis Laravel ini mampu membantu proses pengelolaan data akademik secara lebih efektif dan efisien. Melalui fitur pengelolaan dosen, mahasiswa, mata kuliah, jadwal perkuliahan, dan KRS, seluruh aktivitas akademik dapat dilakukan secara terintegrasi dalam satu sistem. Selain itu, penerapan autentikasi, validasi data, dan relasi database menjadikan aplikasi lebih aman, terstruktur, dan mudah digunakan oleh admin maupun mahasiswa.
-
-
+SIAKAD ini  adalah aplikasi Sistem Informasi Akademik yang digunakan untuk mengelola data mahasiswa, dosen, mata kuliah, jadwal perkuliahan, dan KRS secara terintegrasi. Sistem ini dilengkapi dengan fitur autentikasi pengguna, validasi data, dan pengelolaan database yang terstruktur untuk mendukung proses administrasi akademik yang lebih efektif dan efisien.
